@@ -143,10 +143,7 @@ public class Tutorial {
         }
     }
 //  If any elements remain in set1 : element exists in set 1 but not in seq 2
-        if(set1.size() > 0){
-            return false;
-        }
-        return true;
+        return set1.isEmpty();
     }
 
 
@@ -163,7 +160,6 @@ public class Tutorial {
     public static int[] computePrefixSum(int[] A) {
         int N = A.length;               // Get the length of the input array
         int[] prefixSum = new int[N];    // Initialize the prefix sum array of the same length as A
-
         // Set the first element of prefixSum to be the first element of A
         // This is because the sum from A[0] to A[0] is just A[0] itself
         prefixSum[0] = A[0];
