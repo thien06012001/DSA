@@ -8,6 +8,12 @@ public class Tutorial {
         int[] departures = {110, 300, 220, 230, 315, 600};
 
         System.out.println("Minimum gates required: " + minGatesRequired(arrivals, departures));
+
+        int[] arr1 = {2, 3, 9, 6};
+        int[] arr2 = {-100, 50, -52, 99};
+
+        System.out.println("Closest to zero in arr1: " + Arrays.toString(findClosestSumToZero(arr1)));
+        System.out.println("Closest to zero in arr2: " + Arrays.toString(findClosestSumToZero(arr2)));
     }
     public static int minGatesRequired(int[] arrivals, int[] departures) {
         Arrays.sort(arrivals);
@@ -27,5 +33,30 @@ public class Tutorial {
             }
         }
         return maxGates;
+    }
+
+    public static int[] findClosestSumToZero(int[] arr) {
+        Arrays.sort(arr);
+        int left = 0, right = arr.length - 1;
+        int closestSum = Integer.MAX_VALUE;
+        int[] closestPair = new int[2];
+
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+
+            if (Math.abs(sum) < Math.abs(closestSum)) {
+                closestSum = sum;
+                closestPair[0] = arr[left];
+                closestPair[1] = arr[right];
+            }
+
+            if (sum < 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return closestPair;
     }
 }
