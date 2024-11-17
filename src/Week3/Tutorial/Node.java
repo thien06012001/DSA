@@ -1,6 +1,6 @@
 package Week3.Tutorial;
 
-public class Node {
+class Node {
     public int data;
      Node next;
      Node(int data, Node next) {
