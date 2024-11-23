@@ -53,6 +53,14 @@ public class ArrayQueue<T> {
         return items[front];
     }
 
+    public T peekRear(){
+        if (isEmpty()) {
+            return null;
+        }
+
+        return items[rear];
+    }
+
     public static void main(String[] args) {
         ArrayQueue<Integer> queue = new ArrayQueue<Integer>();
         // enqueue 1 to 9
