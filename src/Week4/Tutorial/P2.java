@@ -1,6 +1,6 @@
-package Week4.Lecture;
+package Week4.Tutorial;
 
-public class BinarySearchTree {
+public class P2 {
 
     // Node class for Binary Search Tree
     static class BTNode {
@@ -18,7 +18,7 @@ public class BinarySearchTree {
     private BTNode root;
     private int size;
 
-    public BinarySearchTree() {
+    public P2() {
         root = null;
         size = 0;
     }
@@ -66,6 +66,24 @@ public class BinarySearchTree {
         }
         size++;
         return true; // Insert successful
+    }
+
+    // Search for a value and count comparisons
+    public int searchWithComparisons(int value) {
+        BTNode current = root;
+        int comparisons = 0;
+
+        while (current != null) {
+            comparisons++;
+            if (value == current.data) {
+                return comparisons; // Value found
+            } else if (value < current.data) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return comparisons; // Value not found
     }
 
     // Remove a node from the tree
@@ -117,7 +135,7 @@ public class BinarySearchTree {
     }
 
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
+        P2 bst = new P2();
 
         // Insert elements
         bst.insert(4);
@@ -135,17 +153,14 @@ public class BinarySearchTree {
         bst.inOrderTraversal(bst.root);
         System.out.println();
 
-        // Find a node
-        BTNode found = bst.find(7);
-        System.out.println("Found node: " + (found != null ? found.data : "Not found"));
+        // Search for values and count comparisons
+        int valueToSearch = 7;
+        int comparisons = bst.searchWithComparisons(valueToSearch);
+        System.out.println("Searching for " + valueToSearch + ": Comparisons = " + comparisons);
 
-        // Remove a node
-        System.out.println("Removing node with value 5");
-        bst.remove(bst.find(5));
-
-        // Print in-order traversal after removal
-        System.out.println("In-order traversal after removal:");
-        bst.inOrderTraversal(bst.root);
-        System.out.println();
+        // Search for a non-existent value
+        valueToSearch = 10;
+        comparisons = bst.searchWithComparisons(valueToSearch);
+        System.out.println("Searching for " + valueToSearch + ": Comparisons = " + comparisons);
     }
 }
