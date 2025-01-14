@@ -1,6 +1,6 @@
 package Week5.Tutotrial;
 
-public class P2B {
+public class CollectionLinearProbing {
     public static void main(String[] args) {
         RMITStudentCollectionLinearProbing collection = new RMITStudentCollectionLinearProbing(13);
         // Alice -> Bob -> Carol

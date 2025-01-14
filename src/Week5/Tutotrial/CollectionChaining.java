@@ -1,6 +1,6 @@
 package Week5.Tutotrial;
 
-public class P2A {
+public class CollectionChaining {
     public static void main(String[] args) {
         RMITStudentCollectionChaining collection = new RMITStudentCollectionChaining(13);
 

@@ -1,6 +1,6 @@
 package Week4.Tutorial;
 
-public class P1 {
+public class TreeHeight {
     public static void main(String[] args) {
         /*
          * let's create this tree

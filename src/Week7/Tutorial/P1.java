@@ -81,6 +81,12 @@ public class P1 {
 }
 
 class MergeSort {
+     /**
+     * Sorts an array using Merge Sort.
+     * Time Complexity: O(N log N).
+     *
+     * @param arr The array to sort.
+     */
     public void mergeSort(int arr[]) {
         if (arr.length > 1) {
             int n = arr.length;
@@ -130,7 +136,15 @@ class MergeSort {
 }
 
 class QuickSortLomuto {
-    // sort with quick sort
+
+     /**
+     * Sorts an array using Quick Sort with Lomuto partition.
+     * Time Complexity: Average O(N log N), Worst O(N^2) (if pivot selection is poor).
+     *
+     * @param arr The array to sort.
+     * @param left The starting index of the subarray.
+     * @param right The ending index of the subarray.
+     */
     public void quickSort(int arr[], int left, int right) {
         if (left < right) {
             try {
@@ -172,7 +186,14 @@ class QuickSortLomuto {
 }
 
 class QuickSortHoare {
-    // sort with quick sort
+     /**
+     * Sorts an array using Quick Sort with Hoare partition.
+     * Time Complexity: Average O(N log N), Worst O(N^2) (if pivot selection is poor).
+     *
+     * @param arr The array to sort.
+     * @param left The starting index of the subarray.
+     * @param right The ending index of the subarray.
+     */
     public void quickSort(int arr[], int left, int right) {
         if (left < right) {
             int p = partition(arr, left, right);

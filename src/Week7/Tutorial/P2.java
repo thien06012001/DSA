@@ -27,6 +27,7 @@ public class P2 {
 }
 
 class Array2BalancedBST {
+    // Converts a sorted array to a balanced Binary Search Tree
     public TreeNode build(int[] arr) {
         TreeNode root = buildTree(arr, 0, arr.length - 1);
         return root;
@@ -34,10 +35,11 @@ class Array2BalancedBST {
 
     public TreeNode buildTree(int[] arr, int left, int right) {
         if (left > right) {
-            return null;
-        }
+            return null; // Base case: no elements to form a tree
+        } 
         int mid = (left + right) / 2;
-        TreeNode parent = new TreeNode(arr[mid]);
+        TreeNode parent = new TreeNode(arr[mid]); // Create a node for the middle element
+         // Recursively build left and right subtrees
         parent.left = buildTree(arr, left, mid - 1);
         parent.right = buildTree(arr, mid + 1, right);
         return parent;
@@ -45,6 +47,12 @@ class Array2BalancedBST {
 }
 
 class List2BalancedBST {
+     /**
+     * Converts a sorted linked list to a balanced Binary Search Tree (BST).
+     *
+     * @param list The sorted linked list.
+     * @return The root of the balanced BST.
+     */
     public TreeNode build(LinkedList list) {
         TreeNode root = buildTree(list.head, null);
         return root;
@@ -52,7 +60,7 @@ class List2BalancedBST {
 
     public TreeNode buildTree(DataNode begin, DataNode end) {
         if (begin == end) {
-            return null;
+            return null; // Base case: no elements to form a tree
         }
 
         DataNode slow = begin;
@@ -65,6 +73,7 @@ class List2BalancedBST {
         }
 
         TreeNode parent = new TreeNode(slow.data);
+         // Recursively build left and right subtrees
         parent.left = buildTree(begin, slow);
         parent.right = buildTree(slow.next, end);
         return parent;

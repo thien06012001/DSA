@@ -1,6 +1,6 @@
 package Week5.Tutotrial;
 
-public class P1 {
+public class CountingSort {
     static int[] generate(int size, int max) {
         int[] res = new int[size];
         for (int i = 0; i < size; i++) {

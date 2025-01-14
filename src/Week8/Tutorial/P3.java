@@ -15,21 +15,26 @@ public class P3 {
     }
 
     static double sqrt(double X) {
-        double eps = 0.0000001;
+        double eps = 0.0000001; // Define the precision level
         double min = 0;
         double max = X;
         // if X is less than 1
         if (X < 1) {
             max = 1;
         }
+
+         // Perform binary search to approximate the square root
         while (max - min > eps) {
             double mid = (min + max) / 2.0;
+
+            // Check if the square of the midpoint is less than X
             if (mid * mid < X) {
-                min = mid;
+                min = mid; // Update min to narrow down the range
             } else {
-                max = mid;
+                max = mid; // Update max to narrow down the range
             }
         }
+        // Return the result within the desired precision
         return max;
     }
 }

@@ -20,7 +20,15 @@ public class P1 {
         System.out.println("Power decrease conquer: " + powerFast(201, 500000000));
         System.out.println("Time: " + (System.nanoTime() - t2));
     }
-
+    /**
+     * Efficient method to compute X^N % MOD using the "decrease and conquer" approach.
+     * This implementation uses exponentiation by squaring to achieve O(log N) time complexity.
+     *
+     * @param X Base of the power
+     * @param N Exponent
+     * @return Result of (X^N) % MOD
+     **/
+    /* who is this diva */
     static int powerFast(int X, int N) {
         if (N == 0) {
             return 1;
@@ -35,7 +43,14 @@ public class P1 {
         }
         return (int) sub;
     }
-
+ /**
+     * Naive method to compute X^N % MOD using a brute force approach.
+     * This implementation uses a loop to compute the result in O(N) time complexity.
+     *
+     * @param X Base of the power
+     * @param N Exponent
+     * @return Result of (X^N) % MOD
+     **/
     static int powerBruteForce(int X, int N) {
         long res = 1;
         for (int i = 0; i < N; i++) {
