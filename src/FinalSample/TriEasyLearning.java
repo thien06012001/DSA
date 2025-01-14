@@ -1,4 +1,4 @@
-package test2_sample;
+package FinalSample;
 
 public class TriEasyLearning {
   int[][] cost;
@@ -31,18 +31,19 @@ public class TriEasyLearning {
     int src = 0;
     int dest = cost.length - 1;
     int n = cost.length;
-      
-    int[] distances = new int[n];  // distance[i] stores the minimum distance from src to i
-    boolean[] visited = new boolean[n];  // visited state
-    int[] previous = new int[n];  // used to construct the shortest path; previous[i] stores the node that is visited before i
-  
+
+    int[] distances = new int[n]; // distance[i] stores the minimum distance from src to i
+    boolean[] visited = new boolean[n]; // visited state
+    int[] previous = new int[n]; // used to construct the shortest path; previous[i] stores the node that is
+                                 // visited before i
+
     // initialization
     for (int i = 0; i < n; i++) {
       distances[i] = Integer.MAX_VALUE;
       previous[i] = -1;
     }
-    distances[src] = 0;  // zero distance from the src to itself
-  
+    distances[src] = 0; // zero distance from the src to itself
+
     while (true) {
       // Greedy choice: retrieve the shortest-distance node from
       // unvisited nodes
@@ -73,7 +74,7 @@ public class TriEasyLearning {
           }
         }
       }
-      
+
       if (shortestNode == dest) {
         // we reach the destination
         // display the shortest path
@@ -99,13 +100,13 @@ public class TriEasyLearning {
 
   public static void main(String[] args) {
     int[][] courses = new int[][] {
-      {0, 1, 5},
-      {4, 0, 3},
-      {2, 1, 0}
+        { 0, 1, 5 },
+        { 4, 0, 3 },
+        { 2, 1, 0 }
     };
     TriEasyLearning test = new TriEasyLearning(courses);
-    int[] s1 = new int[] {0, 2};
-    int[] s2 = new int[] {0, 1, 2};
+    int[] s1 = new int[] { 0, 2 };
+    int[] s2 = new int[] { 0, 1, 2 };
     System.out.println(test.compare(s1, s2));
     System.out.println(test.bestSequence());
   }
