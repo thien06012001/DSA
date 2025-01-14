@@ -1,0 +1,37 @@
+Problem 2
+
+//The numbers in {} are the execution times of each statement
+
+int upperBound(Student[] Std, double searchGPA)
+	N = length(Std)					{1}
+	for i = 0 to (N - 1)				{N}
+		if (Std[i].GPA > searchGPA)		{N} 
+			return i			{1}
+	return N					{1}
+
+Total execution times = 1 + N + N + 1 + 1 = 2*N + 3
+Keep the most significant component and remove multiplicative constants = O(N).
+
+Improvement: Use binary search
+
+int upperBound(Student[] Std, double searchGPA)
+	N = length(Std)				{1}	
+	left = 0				{1}
+	right = N-1				{1}
+	while(left < right)			{lg N} - loop runs O(lg N) times
+		if(Std[left].GPA > searchGPA)	{1} per iteration, {lg N} total
+			return left;		{1}
+		if(Std[right].GPA <= searchGPA)	{1} per iteration, {lg N} total
+			return right + 1;	{1}
+		mid = (left + right)/2;		{1} per iteration, {lg N} total
+		if(Std[mid].GPA > searchGPA)	{1} per iteration, {lg N} total
+			right = mid;		{1} per iteration, {lg N} total
+		else
+			left = mid + 1;		{1} per iteration, {lg N} total
+	
+	if(Std[left].GPA > searchGPA		{1}
+		return left;			{1}
+	return left + 1;			{1}
+
+Total execution times = 8 + 6*lg N
+Keep the most significant component and remove multiplicative constants = O(lg N)
